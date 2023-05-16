@@ -1,0 +1,57 @@
+﻿@model IEnumerable<GestionEquipe.Models.Joueur>
+
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Ajouter">Ajouter</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.No)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEquipe)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (Joueur item in ViewBag.lj) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.No)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEquipe)
+            </td>
+                <td>
+                    <a asp-action="Modifier" asp-route-Id="@item.Id"><button class="btn btn-primary">Modifier</button></a>
+                </td>
+                <td>
+                    <a asp-action="Supprimer" asp-route-Id="@item.Id"><button class="btn btn-danger">Supprimer</button></a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

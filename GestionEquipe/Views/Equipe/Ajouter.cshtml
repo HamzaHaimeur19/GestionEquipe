@@ -1,0 +1,29 @@
+﻿@model GestionEquipe.Models.Equipe
+
+@{
+    ViewData["Title"] = "Ajouter";
+}
+
+<h1>Ajouter</h1>
+
+<h4>Equipe</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Equipe" method="post" asp-action="Ajouter">
+            <div class="form-group">
+                <label asp-for="Pays" class="control-label"></label>
+                <input asp-for="Pays" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="nbrParticipation" class="control-label"></label>
+                <input asp-for="nbrParticipation" class="form-control" />
+            </div>
+                <button type="submit" class="btn btn-success">Ajouter</button>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

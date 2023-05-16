@@ -1,0 +1,53 @@
+﻿@model IEnumerable<GestionEquipe.Models.Equipe>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class= "btn btn-success" asp-action="Ajouter">Nouveau</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nbrParticipation)
+            </th>
+            <th>
+                Action 1
+            </th>
+            <th>
+                Action 2
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (Equipe item in ViewBag.le) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nbrParticipation)
+            </td>
+            <td>
+               <a asp-action="Modifier" asp-route-Id="@item.Id"><button class="btn btn-primary">Modifier</button></a>
+            </td>
+                <td>
+                    <a asp-action="Supprimer" asp-route-Id="@item.Id"><button class="btn btn-danger">Supprimer</button></a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
